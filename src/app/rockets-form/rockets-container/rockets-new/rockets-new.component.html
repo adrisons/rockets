@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+  <fieldset>
+    <legend>Title</legend>
+
+    <div class="col-sm-12 col-md-6">
+      <label for="name">Text</label>
+      <input type="text" formControlName="name" placeholder="Name" />
+      <small *ngIf="form.get('name').invalid"
+        ><mark class="secondary">*</mark>Name is required</small
+      >
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <label for="startDate">Start Date</label>
+      <input type="text" formControlName="startDate" />
+      <small *ngIf="showError('startDate')"><mark class="secondary">*</mark>Date is invalid</small>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <label for="endDate">End Date</label>
+      <input type="text" formControlName="endDate" />
+      <small *ngIf="showError('endDate')"><mark class="secondary">*</mark>Date is invalid</small>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <label for="number">Number</label> <input type="tel" formControlName="number" />
+      <small *ngIf="showError('number')"><mark class="secondary">*</mark>Number must be 6-12 chars long</small>
+
+    </div>
+  </fieldset>
+  <button
+    type="submit"
+    class="primary"
+    [disabled]="form.invalid"
+    (click)="onSaveClick()"
+  >
+    <span class="icon-upload"></span> <span>Save</span>
+  </button>
+  <button type="button" (click)="form.reset()"><span>Clear</span></button>
+</form>
