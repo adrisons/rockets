@@ -48,11 +48,7 @@ export class RocketsNewComponent implements OnInit {
     const date = new Date(value);
     if (date instanceof Date && !isNaN(date.getDate())) {
       return (
-        date.getDate() +
-        '-' +
-        (date.getMonth() + 1) +
-        '-' +
-        date.getFullYear()
+        date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear()
       );
     } else {
       return '';
@@ -80,7 +76,6 @@ export class RocketsNewComponent implements OnInit {
       return null;
     }
   }
-
 
   public showError(controlName: string) {
     const control = this.form.get(controlName);

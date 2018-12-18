@@ -1,4 +1,6 @@
+<app-rockets-new [rocket]="rocket" (save)="onSave($event)"></app-rockets-new>
 
-<app-rockets-new></app-rockets-new>
-
-<app-rockets-list></app-rockets-list>
+<app-rockets-list
+  [rockets]="rockets$ | async"
+  (edit)="rocket = $event"
+></app-rockets-list>

@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.key {
+  position: relative;
+  float: left;
+  margin-right: auto;
+  width: 30%;
+}
+.value {
+  position: relative;
+  width: 70%;
+  float: left;
+}

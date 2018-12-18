@@ -1,3 +1,24 @@
-<p>
-  rockets-list works!
-</p>
+<table>
+  <caption>People</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Number</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rocket of rockets">
+      <td data-label="Name">{{ rocket.name }}</td>
+      <td data-label="Start Date">{{ rocket.startDate | date:'dd/MMM/yyyy' }}</td>
+      <td data-label="Start Date">{{ rocket.endDate | date:'dd/MMM/yyyy' }}</td>
+      <td data-label="Number">{{ rocket.number }}</td>
+      <td data-label="Edit"><button (click)="onEditClick(rocket)"><span class="icon-edit"></span></button></td>
+    </tr>
+  </tbody>
+</table>
+<pre>
+  {{ rockets | json }}
+</pre>
