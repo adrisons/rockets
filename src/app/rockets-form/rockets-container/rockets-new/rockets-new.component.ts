@@ -12,8 +12,7 @@ import {
   styleUrls: ['./rockets-new.component.css']
 })
 export class RocketsNewComponent implements OnInit {
-  @Input() public rocket = {
-    _id: null,
+  public rocket = {
     name: '',
     startDate: null,
     endDate: null,
@@ -26,22 +25,25 @@ export class RocketsNewComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this.fb.group({
-      _id: this.rocket._id,
-      name: [this.rocket.name, Validators.required],
+
+      name: [this.rocket.name,
+        [Validators.required, Validators.maxLength(10)]
+      ],
       startDate: [this.formatDate(this.rocket.startDate), [this.validDate]],
       endDate: [this.formatDate(this.rocket.endDate), [this.validDate]],
       number: [
         this.rocket.number,
-        [Validators.minLength(6), Validators.maxLength(12)]
+        [Validators.minLength(1), Validators.maxLength(12)]
       ]
     });
   }
 
   public onSaveClick() {
     const newContact = { ...this.form.value };
-    newContact.birthDate = this.parseDate(newContact.birthDate);
+    newContact.startDate = this.parseDate(newContact.startDate);
+    newContact.endDate = this.parseDate(newContact.endDate);
     this.save.next(newContact);
-    this.form.reset();
+    // this.form.reset();
   }
 
   private formatDate(value) {
@@ -65,7 +67,7 @@ export class RocketsNewComponent implements OnInit {
       }
     }
     return {
-      date: 'Date of birth invalid'
+      date: 'Date is HUEHUEHUEHUEUHEHU'
     };
   }
 

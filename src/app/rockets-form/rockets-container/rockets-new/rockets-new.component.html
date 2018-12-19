@@ -1,13 +1,6 @@
 <form [formGroup]="form">
   <fieldset>
     <legend>Title</legend>
-    <div class="col-sm-12 col-md-6 row">
-      <label class="key" for="_id">Id</label>
-      <input class="value" type="number" formControlName="_id" />
-      <small *ngIf="showError('_id')"
-        ><mark class="secondary">*</mark>Id is incorrect</small
-      >
-    </div>
 
     <div class="col-sm-12 col-md-6 row">
       <label class="key" for="name">Text</label>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-rockets-container',
@@ -7,19 +8,28 @@ import { Subject } from 'rxjs';
   styleUrls: ['./rockets-container.component.css']
 })
 export class RocketsContainerComponent implements OnInit {
-  public rocket;
   public rockets$: Subject<any[]> = new Subject();
-  private rockets;
-  constructor() {}
+  private rockets = [];
+  constructor(private _http: HttpClient) {}
 
   ngOnInit() {}
 
   public onSave(newItem) {
-    if (newItem._id === null) {
+    if (newItem._id === null || newItem._id === undefined) {
       this.rockets.push({ ...newItem, _id: this.rockets.length });
     } else {
       this.rockets[newItem._id] = { ...newItem };
     }
-    this.rockets$.next(this.rockets);
+    this._http
+      .get('https://launchlibrary.net/1.4/launch/next/5')
+      // .pipe(
+      //   tap( data =>
+      //     console.log(data);
+      //   )
+      // )
+      .subscribe((data: any) => {
+
+        this.rockets$.next(data);
+      });
   }
 }

@@ -6,13 +6,15 @@ import { RocketsFormRoutingModule } from './rockets-form-routing.module';
 import { RocketsContainerComponent } from './rockets-container/rockets-container.component';
 import { RocketsNewComponent } from './rockets-container/rockets-new/rockets-new.component';
 import { RocketsListComponent } from './rockets-container/rockets-list/rockets-list.component';
+import { HttpClientModule } from '@angular/common/Http';
 
 @NgModule({
   declarations: [RocketsContainerComponent, RocketsNewComponent, RocketsListComponent],
   imports: [
     CommonModule,
     RocketsFormRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class RocketsFormModule { }
