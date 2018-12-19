@@ -1,5 +1,5 @@
-<table>
-  <caption>People</caption>
+<table *ngIf="rockets && rockets.length > 0">
+  <h2>People</h2>
   <thead>
     <tr>
       <th>Name</th>
@@ -19,6 +19,4 @@
     </tr>
   </tbody>
 </table>
-<pre>
-  {{ rockets | json }}
-</pre>
+

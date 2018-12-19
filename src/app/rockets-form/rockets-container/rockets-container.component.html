@@ -1,6 +1,13 @@
 <app-rockets-new (save)="onSave($event)"></app-rockets-new>
 
 <app-rockets-list
-  [rockets]="rockets$ | async"
-  (edit)="rocket = $event"
+  [rockets]="items$ | async"
+  (edit)="item = $event"
 ></app-rockets-list>
+
+<button (click)="fetchRockets()">Fetch rockets</button>
+
+<pre *ngIf="(rockets$ | async) as rockets">
+  <h2>Rockets</h2>
+  {{ rockets | json }}
+</pre>
