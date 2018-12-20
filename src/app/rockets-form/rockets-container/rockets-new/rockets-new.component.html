@@ -1,23 +1,29 @@
+<h2 i18n="@@title">New rocket</h2>
 <form [formGroup]="form">
   <fieldset>
     <legend>Title</legend>
 
     <div class="col-sm-12 col-md-6 row">
-      <label class="key" for="name">Text</label>
-      <input class="value" type="text" formControlName="name" placeholder="Name" />
+      <label class="key" for="name" i18n="@@Text">Text</label>
+      <input
+        class="value"
+        type="text"
+        formControlName="name"
+        placeholder="Name"
+      />
       <small *ngIf="form.get('name').invalid"
         ><mark class="secondary">*</mark>Name is required</small
       >
     </div>
     <div class="col-sm-12 col-md-6 row">
-      <label class="key" for="startDate">Start Date</label>
+      <label class="key" for="startDate" i18n="@@StartDate">Start Date</label>
       <input class="value" type="text" formControlName="startDate" />
       <small *ngIf="showError('startDate')"
         ><mark class="secondary">*</mark>Date is invalid</small
       >
     </div>
     <div class="col-sm-12 col-md-6 row">
-      <label class="key" for="endDate">End Date</label>
+      <label class="key" for="endDate" i18n="@@EndDate">End Date</label>
       <input class="value" type="text" formControlName="endDate" />
       <small *ngIf="showError('endDate')"
         ><mark class="secondary">*</mark>Date is invalid</small
@@ -25,7 +31,7 @@
     </div>
 
     <div class="col-sm-12 col-md-6 row">
-      <label class="key" for="number">Number</label>
+      <label class="key" for="number" i18n="@@Number">Number</label>
       <input class="value" type="tel" formControlName="number" />
       <small *ngIf="showError('number')"
         ><mark class="secondary">*</mark>Number must be 6-12 chars long</small

@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:es": "ng serve --configuration=es -o --port 4073",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

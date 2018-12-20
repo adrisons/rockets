@@ -12,7 +12,7 @@ export class RocketsContainerComponent implements OnInit {
   public rockets$: Subject<any[]> = new Subject();
   private items = [];
   public items$: Subject<any[]> = new Subject();
-
+   item;
   constructor(private _http: HttpClient) {}
 
   ngOnInit() {}
